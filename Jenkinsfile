@@ -6,9 +6,10 @@ pipeline {
                git credentialsId: 'github',url: 'https://github.com/GirishDeore/my-app.git'
             }
         }
-         stage ('maven build') {
+         stage ('Build') {
             steps {
-              tool name: '/etc/profile.d/maven.sh', type: 'maven'
+              sh "mvn --version"
+              sh "mvn clean install"
             }
         }
         }
