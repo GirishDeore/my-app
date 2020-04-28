@@ -12,13 +12,13 @@ pipeline {
               sh "mvn clean install"
             }
         }
-        stage ('Delpoy') {
+        stage ('run') {
             steps {
             
 
-                 sshagent(['tomcat-dev']) {
-                 sh 'scp -o StrictHostKeyChecking=no target/*.jar ec2-user@13.233.229.40'
-        }
+                 
+                 sh ' java -jar target/*.jar'
+        
             }
         }
         }
