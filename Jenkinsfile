@@ -17,7 +17,7 @@ pipeline {
             
 
                  sshagent(['tomcat-dev']) {
-                 sh 'scp -o StrictHostKeyChecking=no target/*.jar ec2-user@13.233.229.40'
+                 sh 'scp -o StrictHostKeyChecking=no target/*.txt ec2-user@13.233.229.40'
         }
             }
         }
