@@ -12,12 +12,10 @@ pipeline {
               sh "mvn clean install"
             }
         }
-        stage ('run') {
+        stage ('Deploy') {
             steps {
-            
-
-                 
-                 sh ' java -jar target/*.jar'
+                 sshagent(['tomcat-dev']) {
+                 sh 'scp -o StrictHostKeyChecking=no target/*.jar ec2-user@13.233.229.40'
         
             }
         }
